@@ -1,26 +1,21 @@
 import React from "react";
 import "./TinderCards.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SwipeDown } from "@mui/icons-material";
 import TinderCard from "react-tinder-card";
+import axios from "../axios";
 
 const TinderCards = () => {
-  const [people, setPeople] = useState([
-    {
-      name: "Michael Scott",
-      url: "https://phasrmedia.com/wp-content/uploads/2021/01/Funniest-Michael-Scott-Quotes-1-1.png",
-    },
-    {
-      name: "Ron Swanson",
-      url: "https://uploads-ssl.webflow.com/5fa452663d18a6699f11aa07/62717982fd85850f5976dc1e_Ron%20swanson.jpg",
-    },
-  ]);
+  const [people, setPeople] = useState([]);
 
-  const swiped = (direction, nameToDelete) => {
-    // setLastDirection(direction);
-  };
+  useEffect(() => {
+    async function fetchData() {
+      const req = await axios.get("/tinder/cards");
+      setPeople(req.data);
+    }
 
-  const outOfFrame = (name) => {};
+    fetchData();
+  }, []);
 
   return (
     <div className="tinderCards">
@@ -30,11 +25,9 @@ const TinderCards = () => {
             className="swipe"
             key={person.name}
             preventSwipe={["up", "down"]}
-            onSwipe={(dir) => swiped(dir, person.name)}
-            // onCardLeftScreen{() => outOfFrame(character.name)}>
           >
             <div
-              style={{ backgroundImage: `url(${person.url})` }}
+              style={{ backgroundImage: `url(${person.imgUrl})` }}
               className="card"
             >
               <h3>{person.name}</h3>
