@@ -8,8 +8,8 @@ This is a basic front page of Tinder using the Mern stack where user can swipe a
     - cd tinder-backend -> nodemon (run the react front end side at port 8001)
 - User can upload more tinder cards to mongoDB database by using application such as Postman with body like so: 
 {
-  "name": <name of person>;
-  "imgUrl": <url of image>;
+  "name": name of person; <br>
+  "imgUrl": url of image; <br>
 }
 
 # Demo 
