@@ -6,7 +6,7 @@ This is a basic front page of Tinder using the Mern stack where user can swipe a
 - Commands (need 2 terminals): 
     - cd tinder-frontend -> npm start (make the server to listen to port 3000)
     - cd tinder-backend -> nodemon (run the react front end side at port 8001)
-- User can upload more tinder cards to mongoDB database by using application such as Postman with body like so: <br>
+- User can upload more tinder cards to mongoDB database by using application such as Postman with body like so to 'localhost:8001/tinder/cards': <br>
 { <br>
   "name": name of person; <br>
   "imgUrl": url of image; <br>
